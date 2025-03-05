@@ -3,64 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/AD.svg" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>Agencia Digital</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <div><img src="assets/img//AD.svg" alt="Agencia Digital"></div>
-            <ul>
-                <li>Sobre nosotros</li>
-                <li>Testimonios</li>
-                <li>Contacto</li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <div>
-                <h2>Creando Experiencia Y Marca</h2>
-                <p>Agencia digital al servicio del cliente y de su marca.</p>
-                <button>CONTÁCTANOS</button>
-            </div>
-            <img src="assets/img/hombre estudiando.svg" alt="Hombre estudiando">
-        </section>
-        <section>
-            <div>
-                <h2>Diseño De Marca E Imagen</h2>
-                <p>Comúnmente Utilizado En La Industria Gráfica, De Impresión Y Publicación.</p>
-                <i></i>
-            </div>
-            <img src="assets/img/img2.svg" alt="Diseño de marca e imagen">
-        </section>
-        <section>
-            <h2>Desarrollo De Marca</h2>
-            <p>Comúnmente Utilizado En La Industria Gráfica, De Impresión Y Publicación.</p>
-            <i></i>
-            <img src="assets/img/img3.svg" alt="Desarrollo de marca">
-        </section>
-        <section>
-            <p>Testimonios</p>
-            <h2>Nuestros Clientes Hablan</h2>
-            <article>
-                <img src="assets/img/AndresGarcia.jpg" alt="Foto de Andrés García">
-                <h4>Andrés García</h4>
-                <p>Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Nunc Ullamcorper Scelerisque Mi, In Malesuada Felis Malesuada Vel.</p>
-            </article>
-            <article>
-                <img src="assets/img/VeraRodriguez.jpg" alt="Foto de Vera Rodríguez">
-                <h4>Vera Rodríguez</h4>
-                <p>Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Nunc Ullamcorper Scelerisque Mi, In Malesuada Felis Malesuada Vel.</p>
-            </article>
-            <article>
+        <header>
+            <nav>
+                <div><img src="assets/img//AD.svg" alt="Agencia Digital"></div>
+                <ul>
+                    <li>Sobre nosotros</li>
+                    <li>Testimonios</li>
+                    <li>Contacto</li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="section">
+                <div class="column left">
+                    <h2>Creando Experiencia Y Marca</h2>
+                    <p>Agencia digital al servicio del cliente y de su marca.</p>
+                    <button>CONTÁCTANOS</button>
+                </div>
+                <img class="right" src="assets/img/hombre estudiando.svg" alt="Hombre estudiando">
+            </section>
+            <section class="section">
+                <img class="left" src="assets/img/img2.svg" alt="Diseño de marca e imagen">
+                <div class="column right">
+                    <h2>Diseño De Marca E Imagen</h2>
+                    <p>Comúnmente Utilizado En La Industria Gráfica, De Impresión Y Publicación.</p>
+                    <i></i>
+                </div>
+            </section>
+            <section class="section">
+                <div class="column left">
+                    <h2>Desarrollo De Marca</h2>
+                    <p>Comúnmente Utilizado En La Industria Gráfica, De Impresión Y Publicación.</p>
+                    <i></i>
+                </div>
+                <img class="right" src="assets/img/img3.svg" alt="Desarrollo de marca">
+            </section>
+            <section>
+                <p>Testimonios</p>
+                <h2>Nuestros Clientes Hablan</h2>
+                <article>
+                    <img src="assets/img/AndresGarcia.jpg" alt="Foto de Andrés García">
+                    <h4>Andrés García</h4>
+                    <p>Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Nunc Ullamcorper Scelerisque Mi, In Malesuada Felis Malesuada Vel.</p>
+                </article>
+                <article>
+                    <img src="assets/img/VeraRodriguez.jpg" alt="Foto de Vera Rodríguez">
+                    <h4>Vera Rodríguez</h4>
+                    <p>Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Nunc Ullamcorper Scelerisque Mi, In Malesuada Felis Malesuada Vel.</p>
+                </article>
+                <article>
                 <img src="assets/img/MariaSanchez.jpg" alt="Foto de María Sánchez">
                 <h4>María Sánchez</h4>
                 <p>Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Nunc Ullamcorper Scelerisque Mi, In Malesuada Felis Malesuada Vel.</p>
             </article>
         </section>
-        <section>
-            <img src="assets/img/img4.svg" alt="Imagen de contacto">
-            <div>
+        <section class="section">
+            <img class="left" src="assets/img/img4.svg" alt="Imagen de contacto">
+            <div class="column right">
                 <h2>Formá parte de nuestro Equipo</h2>
                 <p>Visitá nuestro perfil de Linkedin</p>
                 <button>CONTÁCTANOS</button>
@@ -81,5 +86,7 @@
         </ul>
         <p>&copy; Todos los derechos reservados</p>
     </footer>
+    <script src="scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.js"></script>
 </body>
 </html>
