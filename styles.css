@@ -71,16 +71,31 @@ nav {
 }
 
 main {
-    margin: 0 2.8rem 0;
+    margin: 1.7rem 2.8rem 0;
 }
+
+main section:last-child {
+    display: none;
+} 
 
 h2 {
     font-weight: 700;
-    font-size: 3.6rem;
+    /* font-size: 3.6rem; */
+    font-size: min(8vw, 3.6rem);
 }
 
 p {
     font-size: 1rem;
+}
+
+button {
+    all: unset;
+    background-color: var(--variante-primario);
+    color: white;
+    width: max-content;
+    padding: .9rem 1.6rem;
+    border-radius: .5rem;
+    
 }
 
 .section {
@@ -88,23 +103,118 @@ p {
     height: 99vh;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 0 1.2rem;
-    img {
+    /* todas que no sean icon-arrow */
+    img:not(.icon-arrow) { 
         width: 40%;
-        min-width: 480px;
+        min-width: 340px;
+        margin-right: 1rem;
     }
+}
+
+.section-reverse {
+    flex-wrap: wrap-reverse;
 }
 
 .column {
     height: 50%;
     width: 40%;
-    min-width: 370px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
 
+.testimonios {
+    min-height: auto;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3.5rem;
+}
 
+.contain-card {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.card {
+    width: clamp(220px, 30%, 380px);
+    min-width: 260px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--vp-5);
+    border-radius: .85rem;
+    box-shadow: 0px 3px 5px 1.5px var(--grises-5);
+    img {
+        object-fit: contain;
+    }
+    p, h4 {
+        text-align: center;
+    }
+}
+
+.icon-arrow {
+    width: 1.3rem;
+    margin: 0 auto;
+}
+
+.center {
+    text-align: center;
+}
+
+.center h2,
+.center h4,
+.center img,
+.center button,
+.center p {
+    margin: 0 auto;
+}
+
+@media (min-width: 782px) {
+    .section {
+        justify-content: space-evenly;
+    }
+
+    .center {
+        text-align: start;
+    }
+
+    .center h2,
+    .center h4,
+    .center img,
+    .center button,
+    .center p {
+        margin: 0;
+    }
+
+    .icon-arrow {
+        rotate: -90deg;
+        margin-left: 2rem;
+        position: relative;
+        left: 1.5rem;
+    }
+
+    main section:last-child {
+        display: flex;
+    } 
+
+    .testimonios {
+        justify-content: space-evenly;
+    }
+
+    .contain-card {
+        flex-direction: row;
+    }
+}
