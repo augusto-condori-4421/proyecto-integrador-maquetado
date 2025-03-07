@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@300;400;600;700&display=swap');
@@ -32,12 +33,14 @@
     --vp-5: #EFF2FF;
     --vp-6: #EDF7FF;
     --vp-7: white;
+    --vp-7: white;
 }
 
 body {
     font-family: 'Inter', sans-serif;
     width: 100%;
     min-height: 100vh;
+    background-image: radial-gradient(circle at -221px -324px, #5974FF 38%, var(--vp-7) 55%);
     background-image: radial-gradient(circle at -221px -324px, #5974FF 38%, var(--vp-7) 55%);
     background-attachment: fixed;
 }
@@ -47,10 +50,16 @@ header {
 }
 
 .fixed {
+    transition: all 0.3s ease-in-out;
+}
+
+.fixed {
     position: fixed;
+    top: 0;
     top: 0;
     width: 100%;
     box-shadow: .5rem .5rem 8rem .1rem var(--grises-6);
+    background-color: var(--vp-7);
     background-color: var(--vp-7);
     z-index: 20;
     animation: animate__fadeInDown 0.5s; /* Animacion de Animate.css */
@@ -81,6 +90,17 @@ li {
 
 a {
     all: unset;
+    gap: 1rem;
+}
+
+li {
+    list-style: none;
+    height: max-content;
+    margin: auto;
+}
+
+a {
+    all: unset;
 }
 
 main {
@@ -99,9 +119,16 @@ h2, h1 {
 h4 {
     font-weight: 400;
     font-size: 1.2rem;
+    font-size: min(10vw, 3.6rem);
+}
+
+h4 {
+    font-weight: 400;
+    font-size: 1.2rem;
 }
 
 p {
+    font-weight: 400;
     font-weight: 400;
     font-size: 1rem;
 }
@@ -110,9 +137,21 @@ button {
     all: unset;
     background-color: var(--variante-primario);
     color: var(--vp-7);
+    color: var(--vp-7);
     width: max-content;
     padding: .9rem 1.6rem;
     border-radius: .5rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease-in-out;
+}
+
+button:hover {
+    background-color: var(--primario);
+}
+
+button:active {
+    background-color: var(--variante-primario); /* Vuelve al color original al presionar */
+    transform: scale(0.98); /* Da un pequeño efecto de "hundimiento" */
     cursor: pointer;
     transition: background-color 0.25s ease-in-out;
 }
@@ -175,6 +214,7 @@ button:active {
 
 .card {
     width: clamp(260px, 30%, 380px);
+    width: clamp(260px, 30%, 380px);
     display: flex;
     flex-flow: column wrap;
     justify-content: space-center;
@@ -189,6 +229,10 @@ button:active {
     }
     p, h4 {
         text-align: center;
+    }
+    font-weight: 400;
+    p {
+        font-weight: 300;
     }
     font-weight: 400;
     p {
@@ -294,6 +338,7 @@ footer p {
     .icon-arrow {
         position: relative;
         rotate: -90deg;
+        rotate: -90deg;
         left: 1.5rem;
     }
 
@@ -307,6 +352,13 @@ footer p {
 
     .contain-card {
         flex-direction: row;
+    }
+
+    .contain-footer {
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        padding: 6.5rem 6.5rem 3.5rem;
+        gap: 14rem;
     }
 
     .contain-footer {
