@@ -4,6 +4,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@300;400;600;700&display=swap');
@@ -30,24 +31,30 @@
     --vp-4: #C9D1FF;
     --vp-5: #EFF2FF;
     --vp-6: #EDF7FF;
+    --vp-7: white;
 }
 
 body {
     font-family: 'Inter', sans-serif;
     width: 100%;
     min-height: 100vh;
-    background-image: radial-gradient(circle at -221px -324px, #5974FF 38%, white 55%);
+    background-image: radial-gradient(circle at -221px -324px, #5974FF 38%, var(--vp-7) 55%);
     background-attachment: fixed;
 }
 
 header {
+    transition: all 0.3s ease-in-out;
+}
+
+.fixed {
     position: fixed;
-    top: 0px;
+    top: 0;
     width: 100%;
     box-shadow: .5rem .5rem 8rem .1rem var(--grises-6);
-    background-color: white;
+    background-color: var(--vp-7);
     z-index: 20;
-}
+    animation: animate__fadeInDown 0.5s; /* Animacion de Animate.css */
+} 
 
 nav {
     margin: 0.7rem;
@@ -62,12 +69,18 @@ nav {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        li {
-            list-style: none;
-            height: max-content;
-            margin: auto;
-        }
+        gap: 1rem;
     }
+}
+
+li {
+    list-style: none;
+    height: max-content;
+    margin: auto;
+}
+
+a {
+    all: unset;
 }
 
 main {
@@ -78,24 +91,39 @@ main section:last-child {
     display: none;
 } 
 
-h2 {
+h2, h1 {
     font-weight: 700;
-    /* font-size: 3.6rem; */
-    font-size: min(8vw, 3.6rem);
+    font-size: min(10vw, 3.6rem);
+}
+
+h4 {
+    font-weight: 400;
+    font-size: 1.2rem;
 }
 
 p {
+    font-weight: 400;
     font-size: 1rem;
 }
 
 button {
     all: unset;
     background-color: var(--variante-primario);
-    color: white;
+    color: var(--vp-7);
     width: max-content;
     padding: .9rem 1.6rem;
     border-radius: .5rem;
-    
+    cursor: pointer;
+    transition: background-color 0.25s ease-in-out;
+}
+
+button:hover {
+    background-color: var(--primario);
+}
+
+button:active {
+    background-color: var(--variante-primario); /* Vuelve al color original al presionar */
+    transform: scale(0.98); /* Da un pequeño efecto de "hundimiento" */
 }
 
 .section {
@@ -146,8 +174,7 @@ button {
 }
 
 .card {
-    width: clamp(220px, 30%, 380px);
-    min-width: 260px;
+    width: clamp(260px, 30%, 380px);
     display: flex;
     flex-flow: column wrap;
     justify-content: space-center;
@@ -162,6 +189,10 @@ button {
     }
     p, h4 {
         text-align: center;
+    }
+    font-weight: 400;
+    p {
+        font-weight: 300;
     }
 }
 
@@ -182,6 +213,72 @@ button {
     margin: 0 auto;
 }
 
+footer p {
+    background-color: var(--grises-1);
+    color: var(--vp-7);
+
+    padding-bottom: 2rem;
+
+    text-align: center;
+}
+
+.contain-footer {
+    display: flex;
+    flex-flow: column;
+
+    gap: 3.5rem 5rem;
+    margin-top: 4rem;
+    padding: 2.8rem 4rem 2.2rem;
+    
+    background-color: var(--grises-1);
+    color: var(--vp-7);
+
+    font-size: 1rem;
+    font-weight: 300;
+
+    div {
+        width: max-content;
+        margin: auto;
+    }
+}
+
+.section-footer {
+    display: flex;
+    flex-flow: column;
+    gap: 2.4rem;
+    
+    p {
+        font-weight: 700;
+        font-size: 1.2rem;  
+    }
+}
+
+.link {
+    cursor: pointer;
+    position: relative; /* relative, por que sino no aplica bien el subrayado */
+    padding-bottom: 3.5px;
+}
+
+.link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primario);
+    transform-origin: bottom right; /* right para que arranque por izq y se pierda por der, left alrevez */
+    transform: scaleX(0);
+    transition: transform 0.3s ease-out;
+}
+
+/* uso scaleY() para usar 2.5px sin que el navegador lo redondee */
+
+.link:hover::after {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+}
+
 @media (min-width: 782px) {
     .section {
         justify-content: space-evenly;
@@ -200,9 +297,8 @@ button {
     }
 
     .icon-arrow {
-        rotate: -90deg;
-        margin-left: 2rem;
         position: relative;
+        rotate: -90deg;
         left: 1.5rem;
     }
 
@@ -216,5 +312,12 @@ button {
 
     .contain-card {
         flex-direction: row;
+    }
+
+    .contain-footer {
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        padding: 6.5rem 6.5rem 3.5rem;
+        gap: 14rem;
     }
 }
