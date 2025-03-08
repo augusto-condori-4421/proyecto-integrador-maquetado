@@ -32,16 +32,13 @@
     --vp-4: #C9D1FF;
     --vp-5: #EFF2FF;
     --vp-6: #EDF7FF;
-    --vp-7: white;
-    --vp-7: white;
 }
 
 body {
     font-family: 'Inter', sans-serif;
     width: 100%;
     min-height: 100vh;
-    background-image: radial-gradient(circle at -221px -324px, #5974FF 38%, var(--vp-7) 55%);
-    background-image: radial-gradient(circle at -221px -324px, #5974FF 38%, var(--vp-7) 55%);
+    background-image: radial-gradient(circle at -221px -324px, var(--vp-2) 38%, var(--grises-7) 55%);
     background-attachment: fixed;
 }
 
@@ -56,30 +53,80 @@ header {
 .fixed {
     position: fixed;
     top: 0;
-    top: 0;
     width: 100%;
     box-shadow: .5rem .5rem 8rem .1rem var(--grises-6);
-    background-color: var(--vp-7);
-    background-color: var(--vp-7);
+    background-color: var(--grises-7);
     z-index: 20;
     animation: animate__fadeInDown 0.5s; /* Animacion de Animate.css */
 } 
 
+.options {
+    display: flex;
+    flex-flow: column;
+    gap: 1.5rem;
+    padding: 3.2rem 1rem 1rem;
+
+    position: absolute;
+    top: -11px;
+    right: 0;
+    bottom: 0;
+
+    height: max-content;
+    width: 100%;
+
+    align-items: start;
+    background-color: var(--grises-7);
+
+    li {
+        display: inline-block;
+        width: 100%;
+        text-align: left;
+        margin-right: auto;
+    }
+
+    a {
+        width: fit-content;
+        display: inline-block;
+        text-align: left;
+        margin-left: auto;
+        position: relative;
+        padding-bottom: 3.5px;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+}
+
+/* clase con display none y flex, para usar con js */
+.dn {
+    display: none;
+}
+
+.df {
+    display: flex;
+}
+
+.button-close {
+    position: absolute;
+    top: .6rem;
+    right: 1rem;
+    z-index: 30;
+}
+
 nav {
     margin: 0.7rem;
+    padding: .3rem 1.5rem .3rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     div {
         width: 100%;
-    }
-    ul {
-        width: 75%;
         display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        gap: 1rem;
-    }
+        justify-content: start;
+        align-items: center;
+        img {
+            width: 45px;
+        }
+    }   
 }
 
 li {
@@ -91,16 +138,6 @@ li {
 a {
     all: unset;
     gap: 1rem;
-}
-
-li {
-    list-style: none;
-    height: max-content;
-    margin: auto;
-}
-
-a {
-    all: unset;
 }
 
 main {
@@ -119,16 +156,9 @@ h2, h1 {
 h4 {
     font-weight: 400;
     font-size: 1.2rem;
-    font-size: min(10vw, 3.6rem);
-}
-
-h4 {
-    font-weight: 400;
-    font-size: 1.2rem;
 }
 
 p {
-    font-weight: 400;
     font-weight: 400;
     font-size: 1rem;
 }
@@ -136,8 +166,7 @@ p {
 button {
     all: unset;
     background-color: var(--variante-primario);
-    color: var(--vp-7);
-    color: var(--vp-7);
+    color: var(--grises-7);
     width: max-content;
     padding: .9rem 1.6rem;
     border-radius: .5rem;
@@ -156,13 +185,44 @@ button:active {
     transition: background-color 0.25s ease-in-out;
 }
 
-button:hover {
-    background-color: var(--primario);
+/* para boton de menu hamburguesa */
+nav button {
+    all: unset;
+    cursor: pointer;
+    padding: 0;
+    color: var(--variante-primario);
+    i {
+        font-size: 2rem;
+        /* para agregar grosor a los iconos */
+        -webkit-text-stroke: 2px currentColor; /* Agrega un borde sólido */
+    }
 }
 
-button:active {
-    background-color: var(--variante-primario); /* Vuelve al color original al presionar */
-    transform: scale(0.98); /* Da un pequeño efecto de "hundimiento" */
+nav button:hover {
+    background-color: rgb(0, 0, 0, 0);
+    color: var(--primario);
+}
+
+.btn-up {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    padding: .6rem .8rem;
+    z-index: 20;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+    i {
+        font-size: 12px;
+        -webkit-text-stroke: 1px currentColor;
+    }
+}
+
+.btn-up.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
 }
 
 .section {
@@ -214,7 +274,6 @@ button:active {
 
 .card {
     width: clamp(260px, 30%, 380px);
-    width: clamp(260px, 30%, 380px);
     display: flex;
     flex-flow: column wrap;
     justify-content: space-center;
@@ -229,10 +288,6 @@ button:active {
     }
     p, h4 {
         text-align: center;
-    }
-    font-weight: 400;
-    p {
-        font-weight: 300;
     }
     font-weight: 400;
     p {
@@ -259,24 +314,23 @@ button:active {
 
 footer p {
     background-color: var(--grises-1);
-    color: var(--vp-7);
-
-    padding-bottom: 2rem;
-
+    color: var(--grises-7);
+    margin: 0;
+    padding: .5rem .5rem 2rem;
     text-align: center;
 }
 
 .contain-footer {
     display: flex;
     flex-flow: column;
-
+    
     gap: 3.5rem 5rem;
     margin-top: 4rem;
     padding: 2.8rem 4rem 2.2rem;
     
     background-color: var(--grises-1);
-    color: var(--vp-7);
-
+    color: var(--grises-7);
+    
     font-size: 1rem;
     font-weight: 300;
 }
@@ -311,14 +365,47 @@ footer p {
     transition: transform 0.3s ease-out;
 }
 
-/* uso scaleY() para usar 2.5px sin que el navegador lo redondee */
-
 .link:hover::after {
     transform-origin: bottom left;
     transform: scaleX(1);
 }
 
+/* Clase para ocultar elementos antes de la animación */
+.animate-on-scroll {
+    opacity: 0;
+}
+
+.animate__animated {
+    opacity: 1 !important;
+}
+
 @media (min-width: 782px) {
+    nav div {
+        width: 180%;
+        img {
+            width: 70px;
+        }
+    }
+
+    .options {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        padding: 1rem 1rem .3rem;
+        
+        li, a {
+            width: auto;
+            text-align: center;
+        }
+    }
+
+    .button-open {
+        display: none;
+    } 
+
     .section {
         justify-content: space-evenly;
     }
@@ -361,10 +448,12 @@ footer p {
         gap: 14rem;
     }
 
-    .contain-footer {
-        flex-direction: row-reverse;
-        justify-content: flex-end;
-        padding: 6.5rem 6.5rem 3.5rem;
-        gap: 14rem;
+    .btn-up {
+        padding: .8rem 1rem;
+        right: 1.5rem;
+        bottom: 2rem;
+        i {
+            font-size: 16px;
+        }
     }
 }

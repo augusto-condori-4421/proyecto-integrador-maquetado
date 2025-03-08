@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => { // espera a que el dom cargue completamente
     const elements = document.querySelectorAll('.left, .right'); // selecciona los elementos con esas clases
     
+    // Agregar clase para ocultar elementos inicialmente
+    elements.forEach(element => element.classList.add('animate-on-scroll'));
+    
     const observer = new IntersectionObserver((entries) => { // usa la libreria intersectionObserver
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -17,6 +20,9 @@ document.addEventListener('DOMContentLoaded', () => { // espera a que el dom car
 
     // Animaciones para elementos que suben y bajan, funcion upDownElements replica de la funcion observer
     const upDownElements = document.querySelectorAll('.up, .down');
+    
+    // Ocultar elementos up/down inicialmente
+    upDownElements.forEach(element => element.classList.add('animate-on-scroll'));
     
     const upDownObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -49,4 +55,51 @@ window.addEventListener("scroll", () => {
     }
 
     lastScroll = currentScroll;
+});
+
+// burger menu
+const buttonClose = document.querySelector(".button-close");
+const buttonOpen = document.querySelector(".button-open");
+const options = document.querySelector(".options");
+
+// df === display flex
+// dn === display none
+// deja a btn-close y options con df
+// y a btn-open con dn
+buttonOpen.addEventListener("click", () => {
+    options.classList.remove("dn");
+    options.classList.add("df");
+    
+    buttonClose.classList.remove("dn");
+    buttonClose.classList.add("df");
+
+    buttonOpen.classList.remove("df");
+    buttonOpen.classList.add("dn");
+});
+
+// accion opuesta
+buttonClose.addEventListener("click", () => {
+    options.classList.remove("df");
+    options.classList.add("dn");
+    
+    buttonClose.classList.remove("df");
+    buttonClose.classList.add("dn");
+
+    buttonOpen.classList.remove("dn");
+    buttonOpen.classList.add("df");
+});
+
+// boton de volver al inicio
+const btnUp = document.querySelector(".btn-up");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+        btnUp.classList.add("show");
+    } else {
+        btnUp.classList.remove("show");
+    }
+});
+
+btnUp.addEventListener("click", () => {
+    window.scrollTo(0, 0);
 });
