@@ -252,6 +252,10 @@ nav button:hover {
     flex-wrap: wrap-reverse;
 }
 
+.section:last-of-type {
+    display: none;
+}
+
 .column {
     height: 50%;
     width: 40%;
@@ -315,15 +319,20 @@ nav button:hover {
     align-items: center;
     background-image: linear-gradient(0deg, var(--grises-7) 0%, var(--vp-1) 125%);
     border-radius: .85rem;
-    
+
     transform: translateY(100%);
     transition-property: transform;
     transition-duration: .25s;
     transition-timing-function: linear;
-    /* transition-delay
+    /* 
+    transition-delay
     transition-duration
     transition-property
-    transition-timing-function */
+    transition-timing-function 
+    
+    shorthand
+    transition: propiedad duración timing-function delay;
+    */
 }
 
 .card:hover .contact-card {
@@ -415,6 +424,10 @@ footer p {
 }
 
 @media (min-width: 782px) {
+    .section:last-of-type {
+        display: flex;
+    }
+
     nav div {
         width: 180%;
         img {
