@@ -50,10 +50,6 @@ header {
 }
 
 .fixed {
-    transition: all 0.3s ease-in-out;
-}
-
-.fixed {
     position: fixed;
     top: 0;
     width: 100%;
@@ -464,6 +460,36 @@ footer p {
     opacity: 1 !important;
 }
 
+.modal-contact {
+    height: 60%;
+    width: 80%;
+    margin: auto;
+    padding: 2rem;
+
+    display: flex; /* no renderiza hasta darle click */ 
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+    border: none;
+    box-shadow: 0 0 15rem 8rem var(--grises-1);
+    border-radius: 1rem;
+
+    /* animacion de entrada */
+    /* el display no se puede animar */
+    pointer-events: none;
+    z-index: -20;
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+
+dialog.modal-contact[open] {
+    /* renderiza */
+    pointer-events: all;
+    z-index: 20;
+    opacity: 1;
+}
+
 @media (min-width: 782px) {
     .section:last-of-type {
         display: flex;
@@ -544,5 +570,10 @@ footer p {
         i {
             font-size: 16px;
         }
+    }
+
+    .modal-contact {
+        padding: 7rem;
+        width: 65%;
     }
 }

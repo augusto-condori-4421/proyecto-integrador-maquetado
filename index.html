@@ -18,16 +18,21 @@
             <ul class="options dn">
                 <li class="link"><a href="#nosotros">Sobre Nosotros</a></li>
                 <li class="link"><a href="#testimonios">Testimonios</a></li>
-                <li class="link"><a href="#contacto">Contacto</a></li>
+                <li class="link" onclick="document.getElementById('modal-contact').showModal()"><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
     <main>
+        <dialog id="modal-contact" class="modal-contact">
+            <h2>Modal</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, quis! Ullam molestiae quidem exercitationem doloribus, earum soluta esse eligendi! Vel ex deserunt eveniet aperiam non facilis quaerat perferendis culpa in!</p>
+            <button onclick="document.getElementById('modal-contact').close()">Cerrar</button>
+        </dialog>
         <section class="section">
             <div class="column left center">
                 <h1>Creando Experiencia Y Marca</h1>
                 <p>Agencia digital al servicio del cliente y de su marca.</p>
-                <button>CONTÁCTANOS</button>
+                <button onclick="document.getElementById('modal-contact').showModal()">CONTÁCTANOS</button>
             </div>
             <img class="right" src="assets/img/hombre estudiando.svg" alt="Hombre estudiando">
         </section>
@@ -53,7 +58,7 @@
             <div class="contain-card">
                 <article class="card right">    
                     <div class="contact-card back">
-                        <button>CONTÁCTANOS</button>
+                        <button onclick="document.getElementById('modal-contact').showModal()">CONTÁCTANOS</button>
                     </div>
                     <div class="front card">
                         <img src="assets/img/AndresGarcia.webp" alt="Foto de Andrés García">
@@ -63,7 +68,7 @@
                 </article>
                 <article class="card right">
                     <div class="contact-card back">
-                        <button>CONTÁCTANOS</button>
+                        <button onclick="document.getElementById('modal-contact').showModal()">CONTÁCTANOS</button>
                     </div>
                     <div class="front card">
                         <img src="assets/img/VeraRodriguez.webp" alt="Foto de Vera Rodríguez">
@@ -73,7 +78,7 @@
                 </article>
                 <article class="card right">
                     <div class="contact-card back">
-                        <button>CONTÁCTANOS</button>
+                        <button onclick="document.getElementById('modal-contact').showModal()">CONTÁCTANOS</button>
                     </div>
                     <div class="front card">
                         <img src="assets/img/MariaSanchez.webp" alt="Foto de María Sánchez">
@@ -88,7 +93,7 @@
             <div class="column right center">
                 <h2>Formá parte de nuestro Equipo</h2>
                 <p>Visitá nuestro perfil de Linkedin</p>
-                <button>CONTÁCTANOS</button>
+                <button onclick="document.getElementById('modal-contact').showModal()">CONTÁCTANOS</button>
             </div>
         </section>
         <button class="btn-up">
